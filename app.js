@@ -2,8 +2,9 @@ const express=require('express');
 const morgan=require('morgan');
 const mongoose=require('mongoose');
 const blogRoutes=require('./routes/blogRoutes');
+require('dotenv').config();
 
-const dbURI='mongodb+srv://Gurlal97:Qwerty123@node-tuts.zsrxuwx.mongodb.net/?retryWrites=true&w=majority';
+const dbURI=process.env.MONGODB_URI;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then((result) => app.listen(3000))
 .catch((err) =>console.log(err));
